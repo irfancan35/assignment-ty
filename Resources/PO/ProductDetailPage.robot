@@ -28,8 +28,6 @@ Find Product Images
     [Return]        ${prd_imgs}
 
 Add To Basket
-    #open_page
-    #skip_popup
     #go to   https://www.trendyol.com/fairy/platinum-bulasik-makinesi-deterjani-hizli-cozunme-58-yikama-4-lu-p-4160525
     click button                        ${ADD_TO_BASKET}
     wait until element is visible       ${BASKET_ITEM_COUNT}

@@ -5,19 +5,20 @@ Resource    ../Resources/Common.robot
 Test Setup      Begin Web Test
 Test Teardown   End Web Test
 
-# robot -d results test.robot
-# robot -d Results Tests/Trendyol.robot
+# robot --variable BROWSER:chrome -d Results Tests/Trendyol.robot
+# robot --variable BROWSER:headlessfirefox -d Results Tests/Trendyol.robot
 
-*** Keywords ***
+*** Test Cases ***
 Registered user can login
     TrendyolApp.Load Page
+    TrendyolApp.Skip PopUp
     TrendyolApp.Login with Valid User
 
 User should click tabs and check boutique images loaded
     TrendyolApp.Load Page
+    TrendyolApp.Skip PopUp
     TrendyolApp.Check Boutique Images under Tabs
 
-*** Test Cases ***
 User should go to boutique details page and check product images loaded
     TrendyolApp.Load Page   ${URL_BASE}     /butik/liste/supermarket
     TrendyolApp.Go to Boutique  2
@@ -34,9 +35,4 @@ User should add and check product in basket
     TrendyolApp.Go to Boutique  2
     ${prd_name}=    Go to Product Detail    3
     TrendyolApp.Add Product into Basket     ${prd_name}
-
-#*** Test Cases ***
-#test2
-    #TrendyolApp.test2
-    #User should go to boutique details page and check product images
 
