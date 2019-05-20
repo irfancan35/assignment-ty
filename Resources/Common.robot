@@ -15,7 +15,7 @@ ${CLOSE_POPUP} =            class=fancybox-close
 
 *** Keywords ***
 Begin Web Test
-    [Arguments]                 ${brw}=Chrome
+    [Arguments]                 ${brw}=${BROWSER}
     Open Browser                about:blank     ${brw}
     maximize browser window
 
